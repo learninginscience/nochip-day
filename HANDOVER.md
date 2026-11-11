@@ -12,9 +12,9 @@ LIS 晶片系列課程開頭的 20 分鐘暖身活動。學生用平板在一天
 
 | 用途 | 網址 |
 |---|---|
-| 學生（單人模式） | https://pxchen-89.github.io/nochip-day/ |
-| 老師控制台（投影、班級競賽） | https://pxchen-89.github.io/nochip-day/teacher.html |
-| 老師版單人模式（多一顆「顯示答案」） | https://pxchen-89.github.io/nochip-day/?teacher |
+| 學生（單人模式） | https://learninginscience.github.io/nochip-day/ |
+| 老師控制台（投影、班級競賽） | https://learninginscience.github.io/nochip-day/teacher.html |
+| 老師版單人模式（多一顆「顯示答案」） | https://learninginscience.github.io/nochip-day/?teacher |
 
 班級競賽流程：老師開控制台 → 投影 QR code → 學生掃碼輸入名字 → 老師按「開始」→ 即時排行榜 → 老師按「結束」→ 頒獎台。
 
@@ -30,13 +30,14 @@ LIS 晶片系列課程開頭的 20 分鐘暖身活動。學生用平板在一天
 | `firebase-config.js` | Firebase 網頁設定（本來就公開在網頁上，不是密碼；安全靠資料庫規則） |
 | `.nojekyll` | 讓 GitHub Pages 直接發布檔案，不要刪 |
 
-**注意：推上 GitHub 的 main 分支就等於直接上線**，學生掃 QR code 看到的就是最新版。沒有測試環境。
+**注意：main 分支就等於直接上線**，學生掃 QR code 看到的就是最新版。沒有測試環境。所以改東西請開分支、送 PR（見 `CONTRIBUTING.md`），由 pxchen-89 審核後合併。
 
 ---
 
 ## 3. 架構
 
-- **網站**：GitHub Pages，repo `pxchen-89/nochip-day`，main 分支根目錄。推上去約 20 秒生效。
+- **網站**：GitHub Pages，repo `learninginscience/nochip-day`，main 分支根目錄。合併進 main 約 20 秒生效。
+  - 2026-11-11 從 `pxchen-89/nochip-day` 搬進 LIS 組織。舊網址 `pxchen-89.github.io/nochip-day` 改從舊 repo 的 `redirect` 分支發布轉址頁，會自動跳到新網址。
 - **即時排行榜**：Firebase 專案 `nochip-day`（Spark 免費方案），Realtime Database 在新加坡（asia-southeast1），用匿名登入分辨學生。免費方案同時最多 100 個連線，一次一個班沒問題。
 - **資料結構**：
   - `rooms/{4 位數代碼}/meta`：`owner`（開房老師）、`state`（`lobby` / `playing` / `ended`）、`created`、`startedAt`、`endedAt`
@@ -189,3 +190,4 @@ report
 - 2026-10-08　加入陷阱物品（76 樣、26 樣有晶片）；計分加入時間，點錯 −100
 - 2026-10-12　點錯改回 −30；新增這份交接文件
 - 2026-11-05　改成點兩下作答（第一下看名稱）；所有物品名稱加上功能或種類；檢視並調整不合理的擺放位置（體重計、鉛筆、雨傘、掃把、水槽）
+- 2026-11-11　搬進 LIS 組織（learninginscience/nochip-day），網址改成 learninginscience.github.io/nochip-day，舊網址自動轉址；新增 CONTRIBUTING.md 與 CODEOWNERS
